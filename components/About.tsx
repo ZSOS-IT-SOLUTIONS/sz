@@ -59,7 +59,11 @@ const About: React.FC = () => {
                   rel="noreferrer"
                   className="hover-trigger flex items-center gap-2 text-gray-700 dark:text-gray-200 font-bold hover:text-[#0A66C2] dark:hover:text-[#4d9be2] transition-colors"
                 >
-                  <LinkedInIcon className="w-6 h-6 text-[#0A66C2]" />
+                  <img 
+                    src="images/linkedin.png"
+                    alt="LinkedIn"
+                    className="w-6 h-6 object-contain"
+                  />
                   <span>Ibrahim</span>
                 </a>
                 
@@ -85,7 +89,7 @@ const About: React.FC = () => {
               </div>
               
               <div className="text-center mt-6">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white font-montserrat">Ibrahim</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white font-montserrat">Mohamed Murshal Ibrahim T</h3>
                 <p className="text-gray-500 dark:text-gray-400 font-medium">CEO, Skyzuri Solutions</p>
               </div>
             </div>
