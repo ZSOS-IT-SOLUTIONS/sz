@@ -1,0 +1,14 @@
+<<<<<<<
+function App() {
+  const [currentView, setCurrentView] = useState('home');
+=======
+function App() {
+  const [currentView, setCurrentView] = useState('home');
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+
+  const onRequestDemo = (service: string) => {
+    setSelectedService(service);
+    setCurrentView('contact');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+>>>>>>>
