@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, User, Flag, PenLine, MapPin, Linkedin } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { CONTACT_DETAILS } from '../constants';
 
 const Contact: React.FC = () => {
@@ -11,10 +12,49 @@ const Contact: React.FC = () => {
   const [whatsapp, setWhatsapp] = useState('');
   const [services, setServices] = useState('');
   const [requirements, setRequirements] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you! Your request has been submitted successfully.");
+    setIsSubmitting(true);
+
+    // Initialize EmailJS
+    emailjs.init('qSCMjFfQS37HsYO6o');
+
+    const templateParams = {
+      name,
+      email,
+      mobile,
+      whatsapp,
+      services,
+      requirements,
+      country: 'India (भारत)',
+    };
+
+    try {
+      // Send email to admin
+      const adminResult = await emailjs.send('service_3cr6kb5', 'template_c280url', templateParams);
+      console.log('Admin email sent:', adminResult);
+
+      // Send confirmation email to user
+      const userResult = await emailjs.send('service_3cr6kb5', 'template_upwuy55', templateParams);
+      console.log('User email sent:', userResult);
+
+      alert("Thank you! Your request has been submitted successfully. You will receive a confirmation email shortly.");
+      // Reset form
+      setName('');
+      setEmail('');
+      setMobile('');
+      setWhatsapp('');
+      setServices('');
+      setRequirements('');
+    } catch (error: any) {
+      console.error('Email sending failed:', error);
+      const errorMessage = error?.text || error?.message || 'Unknown error occurred';
+      alert(`Sorry, there was an error submitting your request: ${errorMessage}. Please contact us directly at ${CONTACT_DETAILS.email} or call ${CONTACT_DETAILS.phone}.`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -247,9 +287,10 @@ const Contact: React.FC = () => {
             {/* Submit Button */}
             <button
                 type="submit"
-                className="w-full py-4 bg-white text-gray-900 font-bold text-lg uppercase tracking-wide rounded-md shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 mt-6"
+                disabled={isSubmitting}
+                className="w-full py-4 bg-white text-gray-900 font-bold text-lg uppercase tracking-wide rounded-md shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-                submit
+                {isSubmitting ? 'Sending...' : 'Submit'}
             </button>
 
         </form>

@@ -24,7 +24,7 @@ const Team: React.FC = () => {
     {
       name: 'Nimalan S',
       position:'Managing Director, SkyZuri Techbridge',
-      email: 'sarah@skyzuri.com',
+      email: 'nimalsoma1973@gmail.com ',
       phone: '+91 9843982348',
       image: 'images/nimal.png',
       linkedin: 'https://www.linkedin.com/in/nimalan-s-b538002bb/',

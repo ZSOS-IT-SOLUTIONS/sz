@@ -59,7 +59,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </p>
             <div className="flex items-center justify-center md:justify-start gap-4 mt-6">
                 <motion.a
-                    href="https://instagram.com"
+                    href="https://instagram.com/skyzuri.official"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
@@ -69,7 +69,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     <img src="images/instagram.png" alt="Instagram" className="w-6 h-6" />
                 </motion.a>
                 <motion.a
-                    href="https://linkedin.com"
+                    href="https://www.linkedin.com/company/skyzuri-techbridge"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
@@ -129,10 +129,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="min-w-[150px] text-center md:text-left">
               <h4 className="font-semibold text-lg mb-4">Contact</h4>
               <ul className="space-y-3">
-                <li className="flex items-center gap-2"><Phone size={16} /> <a href="tel:+919385816887" className="text-sm text-white"> +91 9385816887</a></li>
+                <li className="flex items-center gap-2"><Phone size={16} /> <a href="https://wa.me/919385816887?text=Hello SkyZuri Techbridge. I would like to make an enquiry." target="_blank" className="text-sm text-white"> +91 9385816887</a></li>
                 <li className="flex items-center gap-2"><Mail size={16} /> <a href="mailto:connect.skyzuri@gmail.com" className="text-sm text-white"> connect.skyzuri@gmail.com</a></li>
                 <li className="flex items-center gap-2"><MapPin size={16} /> <span className="text-sm text-white"> Madurai, Tamil Nadu, India</span></li>
-                <li className="flex items-center gap-2"><Linkedin size={16} /> <a href="https://www.linkedin.com/company/skyzuritech/" target="_blank" rel="noopener noreferrer" className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Connect with us</a></li>
+                <li className="flex items-center gap-2"><Linkedin size={16} /> <a href="https://www.linkedin.com/company/skyzuri-techbridge" target="_blank" rel="noopener noreferrer" className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Connect with us</a></li>
               </ul>
             </div>
 
@@ -149,7 +149,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />
-            <p>&copy; {new Date().getFullYear()} SkyZuri Technologies. All Rights Reserved.</p>
+            <p>&copy; {new Date().getFullYear()} SkyZuri Techbridge. All Rights Reserved.</p>
           </div>
         </div>
       </div>
