@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LinkedInIcon from './LinkedInIcon';
 import InstagramIcon from './InstagramIcon';
 import YouTubeIcon from './YouTubeIcon';
@@ -11,6 +11,8 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const navigate = useNavigate();
+
   const handleLinkClick = (page: string) => {
     if (onNavigate) {
       onNavigate(page);
@@ -46,14 +48,14 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="flex-1 min-w-[250px] md:max-w-[350px] flex flex-col items-center md:items-start">
             <Link to="/" className="flex items-center justify-center cursor-pointer">
                 <motion.div
-                    className="w-32 h-32 rounded-2xl overflow-hidden shadow-lg"
+                    className="w-100 h-100 shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                 >
-                    <img src="images/logo.png" alt="SkyZuri Techbridges Logo" className="w-full h-full object-cover" />
+                    <img src="images/artboard 10.png" alt="SkyZuri Techbridges Logo" className="w-full h-full object-cover" />
                 </motion.div>
             </Link>
-            <p className="mt-6 text-sm text-white leading-relaxed text-center md:text-left">
+            <p className="mt-6 text-base text-white leading-relaxed text-center md:text-left">
                 We empower businesses to transform, grow, and lead the future with cutting-edge technology and smart digital experiences.
 
             </p>
@@ -64,7 +66,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     rel="noopener noreferrer"
                     aria-label="Instagram"
                     whileHover={{ scale: 1.2, rotate: 10 }}
-                    className="p-2 rounded-full transition-colors hover:bg-white/10"
+                    className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-white/30 hover:shadow-xl"
                 >
                     <img src="images/instagram.png" alt="Instagram" className="w-6 h-6" />
                 </motion.a>
@@ -74,7 +76,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
                     whileHover={{ scale: 1.2, rotate: 10 }}
-                    className="p-2 rounded-full transition-colors hover:bg-white/10"
+                    className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-white/30 hover:shadow-xl"
                 >
                     <img src="images/linkedin.png" alt="LinkedIn" className="w-6 h-6" />
                 </motion.a>
@@ -84,7 +86,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     rel="noopener noreferrer"
                     aria-label="YouTube"
                     whileHover={{ scale: 1.2, rotate: 10 }}
-                    className="p-2 rounded-full transition-colors hover:bg-white/10"
+                    className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-white/30 hover:shadow-xl"
                 >
                     <img src="images/youtube.png" alt="YouTube" className="w-6 h-6" />
                 </motion.a>
@@ -97,11 +99,11 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="min-w-[150px] text-center md:text-left">
               <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
               <ul className="space-y-3">
-                <li><motion.a href="#home" onClick={(e) => {e.preventDefault(); handleLinkClick('home')}} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Home</motion.a></li>
-                <li><motion.a href="#about" onClick={(e) => {e.preventDefault(); handleLinkClick('about')}} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>About Us</motion.a></li>
-                <li><motion.a href="#services" onClick={(e) => {e.preventDefault(); handleLinkClick('services')}} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Services</motion.a></li>
-                <li><motion.a href="#portfolio" onClick={(e) => {e.preventDefault(); handleLinkClick('portfolio')}} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Portfolio</motion.a></li>
-                <li><motion.button onClick={() => handleLinkClick('faq')} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>FAQ</motion.button></li>
+                <li><motion.button onClick={() => navigate('/')} className="text-base text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Home</motion.button></li>
+                <li><motion.button onClick={() => navigate('/about')} className="text-base text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>About Us</motion.button></li>
+                <li><motion.button onClick={() => navigate('/services')} className="text-base text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Services</motion.button></li>
+                <li><motion.button onClick={() => navigate('/portfolio')} className="text-base text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Portfolio</motion.button></li>
+                <li><motion.button onClick={() => handleLinkClick('faq')} className="text-base text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>FAQ</motion.button></li>
               </ul>
             </div>
 
@@ -109,8 +111,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="min-w-[150px] text-center md:text-left">
               <h4 className="font-semibold text-lg mb-4">Company</h4>
               <ul className="space-y-3">
-                <li><Link to="/team" className="text-sm text-white" style={{ display: 'block' }}><motion.span whileHover={{ scale: 1.1, color: '#00A8E8' }}>Team</motion.span></Link></li>
-                <li><Link to="/careers" className="text-sm text-white" style={{ display: 'block' }}><motion.span whileHover={{ scale: 1.1, color: '#00A8E8' }}>Careers</motion.span></Link></li>
+                <li><motion.button onClick={() => navigate('/team')} className="text-base text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Team</motion.button></li>
+                <li><motion.button onClick={() => navigate('/careers')} className="text-base text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Careers</motion.button></li>
               </ul>
             </div>
 
@@ -118,10 +120,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="min-w-[150px] text-center md:text-left">
               <h4 className="font-semibold text-lg mb-4">Support</h4>
               <ul className="space-y-3">
-                <li><motion.button onClick={() => handleLinkClick('support')} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Support</motion.button></li>
-                <li><motion.button onClick={() => handleLinkClick('help-center')} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Help Center</motion.button></li>
-                <li><motion.button onClick={() => handleLinkClick('privacy-policy')} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Privacy Policy</motion.button></li>
-                <li><motion.button onClick={() => handleLinkClick('terms-of-service')} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Terms of Service</motion.button></li>
+                <li><motion.button onClick={() => handleLinkClick('/header')} className="text-base text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Support</motion.button></li>
+                <li><motion.button onClick={() => handleLinkClick('help-center')} className="text-base text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Help Center</motion.button></li>
+                <li><motion.button onClick={() => handleLinkClick('privacy-policy')} className="text-base text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Privacy Policy</motion.button></li>
+                <li><motion.button onClick={() => handleLinkClick('terms-of-service')} className="text-base text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Terms of Service</motion.button></li>
               </ul>
             </div>
 
@@ -129,10 +131,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="min-w-[150px] text-center md:text-left">
               <h4 className="font-semibold text-lg mb-4">Contact</h4>
               <ul className="space-y-3">
-                <li className="flex items-center gap-2"><Phone size={16} /> <a href="https://wa.me/919385816887?text=Hello SkyZuri Techbridge. I would like to make an enquiry." target="_blank" className="text-sm text-white"> +91 9385816887</a></li>
-                <li className="flex items-center gap-2"><Mail size={16} /> <a href="mailto:connect.skyzuri@gmail.com" className="text-sm text-white"> connect.skyzuri@gmail.com</a></li>
-                <li className="flex items-center gap-2"><MapPin size={16} /> <span className="text-sm text-white"> Madurai, Tamil Nadu, India</span></li>
-                <li className="flex items-center gap-2"><Linkedin size={16} /> <a href="https://www.linkedin.com/company/skyzuri-techbridge" target="_blank" rel="noopener noreferrer" className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Connect with us</a></li>
+                <li><motion.div initial={{ color: 'white' }} whileHover={{ scale: 1.1, color: '#00A8E8' }} className="flex items-center gap-2"><Phone size={16} /> <a href="https://wa.me/919385816887?text=Hello SkyZuri Techbridge. I would like to make an enquiry." target="_blank" className="text-base"> +91 9385816887</a></motion.div></li>
+                <li><motion.div initial={{ color: 'white' }} whileHover={{ scale: 1.1, color: '#00A8E8' }} className="flex items-center gap-2"><Mail size={16} /> <a href="mailto:connect.skyzuri@gmail.com" className="text-base"> connect.skyzuri@gmail.com</a></motion.div></li>
+                <li><motion.div initial={{ color: 'white' }} whileHover={{ scale: 1.1, color: '#00A8E8' }} className="flex items-center gap-2"><MapPin size={16} /> <span className="text-base"> Madurai, Tamil Nadu, India</span></motion.div></li>
+                <li><motion.div initial={{ color: 'white' }} whileHover={{ scale: 1.1, color: '#00A8E8' }} className="flex items-center gap-2"><Linkedin size={16} /> <a href="https://www.linkedin.com/company/skyzuri-techbridge" target="_blank" rel="noopener noreferrer" className="text-base">Connect with us</a></motion.div></li>
               </ul>
             </div>
 
@@ -140,16 +142,16 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-white/10 pt-10 text-center text-sm text-white tracking-wider">
+        <div className="mt-16 border-t border-white/10 pt-10 text-center text-base text-white tracking-wider">
           <div className="flex justify-center items-center gap-2">
-            <motion.img 
-              src="images/logo.png" 
-              alt="SkyZuri Logo" 
+            <motion.img
+              src="images/logo.png"
+              alt="SkyZuri Logo"
               className="h-5 w-5"
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />
-            <p>&copy; {new Date().getFullYear()} SkyZuri Techbridge. All Rights Reserved.</p>
+            <p>&copy; {new Date().getFullYear()} <motion.button onClick={() => navigate('/hero')} className="text-white hover:text-blue-400 transition-colors" whileHover={{ scale: 1.05 }}>SkyZuri Techbridge</motion.button>. All Rights Reserved.</p>
           </div>
         </div>
       </div>

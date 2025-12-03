@@ -7,7 +7,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onNavigateContact }) => {
   return (
-    <section className="relative min-h-[420px] rounded-b-[45px] bg-gradient-to-br from-[#eaf2fe] via-[#dae2f7] to-[#eaf2fe] px-6 py-12 md:px-16 lg:px-24 mb-16 shadow-soft flex flex-col-reverse md:flex-row items-center justify-between gap-10 overflow-hidden">
+    <section id="hero" className="relative min-h-[420px] rounded-b-[45px] bg-gradient-to-br from-[#eaf2fe] via-[#dae2f7] to-[#eaf2fe] px-6 py-12 md:px-16 lg:px-24 mb-16 shadow-soft flex flex-col-reverse md:flex-row items-center justify-between gap-10 overflow-hidden">
       
       {/* Text Content */}
       <div className="max-w-xl z-10 text-center md:text-left">
