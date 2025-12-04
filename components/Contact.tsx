@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, User, Flag, PenLine, MapPin, Linkedin } from 'lucide-react';
+import { Phone, Mail, User, Flag, PenLine, MapPin, Linkedin, CheckCircle, XCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { CONTACT_DETAILS } from '../constants';
 
 const Contact: React.FC = () => {
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -14,11 +15,17 @@ const Contact: React.FC = () => {
   const [requirements, setRequirements] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // ⬇ NEW STATES FOR MESSAGE UI
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSuccessMessage('');
+    setErrorMessage('');
 
-    // Initialize EmailJS
+    const submission_time = new Date().toLocaleString();
     emailjs.init('qSCMjFfQS37HsYO6o');
 
     const templateParams = {
@@ -29,29 +36,26 @@ const Contact: React.FC = () => {
       services,
       requirements,
       country: 'India (भारत)',
+      submission_time,
     };
 
     try {
-      // Send email to admin
-      const adminResult = await emailjs.send('service_3cr6kb5', 'template_c280url', templateParams);
-      console.log('Admin email sent:', adminResult);
+      await emailjs.send('service_3cr6kb5', 'template_c280url', templateParams);
+      await emailjs.send('service_3cr6kb5', 'template_upwuy55', templateParams);
 
-      // Send confirmation email to user
-      const userResult = await emailjs.send('service_3cr6kb5', 'template_upwuy55', templateParams);
-      console.log('User email sent:', userResult);
+      setSuccessMessage("Thank you! Your request has been submitted successfully. You will receive a confirmation email shortly.");
 
-      alert("Thank you! Your request has been submitted successfully. You will receive a confirmation email shortly.");
-      // Reset form
+      // reset form
       setName('');
       setEmail('');
       setMobile('');
       setWhatsapp('');
       setServices('');
       setRequirements('');
+
     } catch (error: any) {
-      console.error('Email sending failed:', error);
-      const errorMessage = error?.text || error?.message || 'Unknown error occurred';
-      alert(`Sorry, there was an error submitting your request: ${errorMessage}. Please contact us directly at ${CONTACT_DETAILS.email} or call ${CONTACT_DETAILS.phone}.`);
+      const msg = error?.text || error?.message || 'Unknown error occurred';
+      setErrorMessage(`Sorry, there was an error submitting your request: ${msg}`);
     } finally {
       setIsSubmitting(false);
     }
@@ -59,13 +63,12 @@ const Contact: React.FC = () => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX / window.innerWidth * 100, y: e.clientY / window.innerHeight * 100 });
+      setMousePosition({ x: (e.clientX / window.innerWidth) * 100, y: (e.clientY / window.innerHeight) * 100 });
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Generate particles for 3D background
   const particles = Array.from({ length: 30 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
@@ -79,6 +82,7 @@ const Contact: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 py-16 px-4 font-inter animate-fade-in relative overflow-hidden">
+
       {/* 3D Animated Background */}
       <div className="absolute inset-0" style={{ perspective: '1000px' }}>
         {particles.map((particle) => (
@@ -89,7 +93,7 @@ const Contact: React.FC = () => {
               backgroundColor: particle.color,
               left: `${particle.x}%`,
               top: `${particle.y}%`,
-              transform: `translateZ(${particle.z}px)`,
+              transform: `translateZ(${particle.z}px)`
             }}
             animate={{
               x: mousePosition.x * 0.5 + particle.offsetX,
@@ -105,20 +109,21 @@ const Contact: React.FC = () => {
           />
         ))}
       </div>
-      {/* Header Section */}
+
+      {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-12 animate-slide-up relative z-10">
         <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-montserrat">
           We'd Love To Hear From You!
         </h1>
         <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-          Know your requirement, our technical expert will schedule a call and discuss your idea in detail. All information will be kept confidential.
+          Know your requirement, our technical expert will schedule a call and discuss your idea in detail.
         </p>
       </div>
 
-      {/* Contact Information and Form Section */}
+      {/* Contact Information + Form */}
       <div className="grid md:grid-cols-2 gap-12 mb-12">
 
-        {/* Contact Info */}
+        {/* LEFT SIDE CONTACT INFO (UNCHANGED) */}
         <div className="space-y-6 animate-slide-up-delayed relative z-10">
           <h3 className="text-2xl font-bold text-white mb-6 font-montserrat">Get In Touch</h3>
           <div className="space-y-4">
@@ -129,6 +134,7 @@ const Contact: React.FC = () => {
                 <p className="text-white">{CONTACT_DETAILS.phone}</p>
               </div>
             </motion.div>
+
             <motion.div className="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg border border-gray-700" whileHover={{ scale: 1.02 }}>
               <Mail className="text-blue-400" size={24} />
               <div>
@@ -136,6 +142,7 @@ const Contact: React.FC = () => {
                 <p className="text-white">{CONTACT_DETAILS.email}</p>
               </div>
             </motion.div>
+
             <motion.div className="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg border border-gray-700" whileHover={{ scale: 1.02 }}>
               <MapPin className="text-blue-400" size={24} />
               <div>
@@ -143,6 +150,7 @@ const Contact: React.FC = () => {
                 <p className="text-white">{CONTACT_DETAILS.address}</p>
               </div>
             </motion.div>
+
             <motion.div className="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg border border-gray-700" whileHover={{ scale: 1.02 }}>
               <Linkedin className="text-blue-400" size={24} />
               <div>
@@ -153,149 +161,171 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        {/* Contact Form */}
+        {/* RIGHT SIDE CONTACT FORM */}
         <div className="animate-slide-up-delayed relative z-10">
           <div className="bg-gray-800 rounded-lg shadow-2xl p-8 md:p-12 border border-gray-700">
 
-        <h2 className="text-2xl font-bold text-center text-white mb-8 font-montserrat">
-          Contact Us
-        </h2>
+            <h2 className="text-2xl font-bold text-center text-white mb-8 font-montserrat">
+              Contact Us
+            </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-8">
+            {/* SUCCESS MESSAGE UI */}
+            {successMessage && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-6 p-4 bg-green-700/20 border border-green-500 text-green-300 rounded-lg flex items-center space-x-3"
+              >
+                <CheckCircle size={22} />
+                <p>{successMessage}</p>
+              </motion.div>
+            )}
 
-          {/* Row 1: Name & Email */}
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="relative group animate-fade-in-up">
-               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-white transition-colors duration-300">
-                 <User size={20} />
-               </div>
-               <input
-                 type="text"
-                 placeholder="Enter Your Name"
-                 value={name}
-                 onChange={(e) => setName(e.target.value)}
-                 className="w-full pl-12 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:border-white focus:ring-2 focus:ring-white transition-all duration-300 placeholder-gray-400 hover:border-gray-500"
-                 required
-               />
-            </div>
+            {/* ERROR MESSAGE UI */}
+            {errorMessage && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-6 p-4 bg-red-700/20 border border-red-500 text-red-300 rounded-lg flex items-center space-x-3"
+              >
+                <XCircle size={22} />
+                <p>{errorMessage}</p>
+              </motion.div>
+            )}
 
-            <div className="relative group animate-fade-in-up">
-               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-white transition-colors duration-300">
-                 <Mail size={20} />
-               </div>
-               <input
-                 type="email"
-                 placeholder="Enter Your Email"
-                 value={email}
-                 onChange={(e) => setEmail(e.target.value)}
-                 className="w-full pl-12 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:border-white focus:ring-2 focus:ring-white transition-all duration-300 placeholder-gray-400 hover:border-gray-500"
-                 required
-               />
-            </div>
-          </div>
+            {/* FORM STARTS */}
+            <form onSubmit={handleSubmit} className="space-y-8">
 
-          {/* Country */}
-          <div className="relative group animate-fade-in-up">
-             <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-white transition-colors duration-300">
-               <Flag size={20} />
-             </div>
-             <input
-               type="text"
-               value="India (भारत)"
-               className="w-full pl-12 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:border-white focus:ring-2 focus:ring-white transition-all duration-300"
-               disabled
-             />
-          </div>
+              {/* Row 1 */}
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="relative group animate-fade-in-up">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                    <User size={20} />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Enter Your Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full pl-12 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white"
+                    required
+                  />
+                </div>
 
-           {/* Row 2: Mobile & Whatsapp */}
-           <div className="grid md:grid-cols-2 gap-6">
-             <div className="relative group animate-fade-in-up">
-                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-white transition-colors duration-300">
-                  <Phone size={20} />
+                <div className="relative group animate-fade-in-up">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                    <Mail size={20} />
+                  </div>
+                  <input
+                    type="email"
+                    placeholder="Enter Your Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full pl-12 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* COUNTRY */}
+              <div className="relative group animate-fade-in-up">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                  <Flag size={20} />
                 </div>
                 <input
-                  type="tel"
-                  placeholder="+91 Enter Mobile Number"
-                  value={mobile}
-                  onChange={(e) => setMobile(e.target.value)}
-                  className="w-full pl-12 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:border-white focus:ring-2 focus:ring-white transition-all duration-300 placeholder-gray-400 hover:border-gray-500"
-                  required
+                  type="text"
+                  value="India (भारत)"
+                  className="w-full pl-12 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white"
+                  disabled
                 />
-             </div>
+              </div>
 
-             <div className="relative group animate-fade-in-up">
-                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-white transition-colors duration-300">
-                  <Phone size={20} />
+              {/* Row 2 */}
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="relative group animate-fade-in-up">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                    <Phone size={20} />
+                  </div>
+                  <input
+                    type="tel"
+                    placeholder="+91 Enter Mobile Number"
+                    value={mobile}
+                    onChange={(e) => setMobile(e.target.value)}
+                    className="w-full pl-12 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white"
+                    required
+                  />
                 </div>
-                <input
-                  type="tel"
-                  placeholder="Enter Whatsapp Number"
-                  value={whatsapp}
-                  onChange={(e) => setWhatsapp(e.target.value)}
-                  className="w-full pl-12 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:border-white focus:ring-2 focus:ring-white transition-all duration-300 placeholder-gray-400 hover:border-gray-500"
+
+                <div className="relative group animate-fade-in-up">
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                    <Phone size={20} />
+                  </div>
+                  <input
+                    type="tel"
+                    placeholder="Enter Whatsapp Number"
+                    value={whatsapp}
+                    onChange={(e) => setWhatsapp(e.target.value)}
+                    className="w-full pl-12 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* SERVICE SELECT */}
+              <div className="relative group animate-fade-in-up">
+                <select
+                  value={services}
+                  onChange={(e) => setServices(e.target.value)}
+                  className="w-full pl-4 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white"
                   required
-                />
-             </div>
-           </div>
+                >
+                  <option value="">Select Your Services</option>
+                  <option value="Custom Software Development">Custom Software Development</option>
+                  <option value="AI Development">AI Development</option>
+                  <option value="Web/Mobile App Development">Web/Mobile App Development</option>
+                  <option value="Cryptocurrency Development">Cryptocurrency Development</option>
+                  <option value="Crypto Exchange Development">Crypto Exchange Development</option>
+                  <option value="Bot Development">Bot Development</option>
+                  <option value="Neo Banking Development">Neo Banking Development</option>
+                  <option value="Smart Contract Development">Smart Contract Development</option>
+                  <option value="Web3 DApp or DeFi Development">Web3 DApp or DeFi Development</option>
+                  <option value="Wallet Development">Wallet Development</option>
+                  <option value="Token Development">Token Development</option>
+                  <option value="Business Consulting">Business Consulting</option>
+                  <option value="Startup/Enterprise Product Development">Startup/Enterprise Product Development</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
 
-           {/* Services Select */}
-           <div className="relative group animate-fade-in-up">
-             <select
-               value={services}
-               onChange={(e) => setServices(e.target.value)}
-               className="w-full pl-4 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:border-white focus:ring-2 focus:ring-white transition-all duration-300"
-               required
-             >
-               <option value="">Select Your Services</option>
-               <option value="Custom Software Development">Custom Software Development</option>
-               <option value="AI Development">AI Development</option>
-               <option value="Web/Mobile App Development">Web/Mobile App Development</option>
-               <option value="Cryptocurrency Development">Cryptocurrency Development</option>
-               <option value="Crypto Exchange Development">Crypto Exchange Development</option>
-               <option value="Bot Development">Bot Development</option>
-               <option value="Neo Banking Development">Neo Banking Development</option>
-               <option value="Smart Contract Development">Smart Contract Development</option>
-               <option value="Web3 DApp or DeFi Development">Web3 DApp or DeFi Development</option>
-               <option value="Wallet Development">Wallet Development</option>
-               <option value="Token Development">Token Development</option>
-               <option value="Business Consulting">Business Consulting</option>
-               <option value="Startup/Enterprise Product Development">Startup/Enterprise Product Development</option>
-               <option value="Others">Others</option>
-             </select>
-           </div>
-
-            {/* Requirements Textarea */}
-            <div className="relative pt-2 animate-fade-in-up">
+              {/* MESSAGE */}
+              <div className="relative pt-2 animate-fade-in-up">
                 <div className="absolute left-4 top-6 text-gray-400">
-                    <PenLine size={18} />
+                  <PenLine size={18} />
                 </div>
                 <textarea
-                    rows={4}
-                    placeholder="Write Your Requirements.."
-                    value={requirements}
-                    onChange={(e) => setRequirements(e.target.value)}
-                    className="w-full pl-12 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:border-white focus:ring-2 focus:ring-white transition-all duration-300 placeholder-gray-400 resize-none hover:border-gray-500"
-                    required
+                  rows={4}
+                  placeholder="Write Your Requirements.."
+                  value={requirements}
+                  onChange={(e) => setRequirements(e.target.value)}
+                  className="w-full pl-12 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white resize-none"
+                  required
                 ></textarea>
-                 <div className="absolute bottom-4 right-4 text-gray-400 pointer-events-none">
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                        <path d="M1 9H9V1" stroke="currentColor" strokeLinecap="round"/>
-                    </svg>
-                </div>
-            </div>
+              </div>
 
-            {/* Submit Button */}
-            <button
+              {/* SUBMIT BUTTON */}
+              <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 bg-white text-gray-900 font-bold text-lg uppercase tracking-wide rounded-md shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-                {isSubmitting ? 'Sending...' : 'Submit'}
-            </button>
+                className="w-full py-4 bg-white text-gray-900 font-bold text-lg uppercase tracking-wide rounded-md shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:opacity-50"
+              >
+                {isSubmitting ? "Sending..." : "Submit"}
+              </button>
 
-        </form>
+            </form>
+
           </div>
         </div>
+
       </div>
     </div>
   );
