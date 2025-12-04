@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
     setErrorMessage('');
 
     const submission_time = new Date().toLocaleString();
-    emailjs.init('qSCMjFfQS37HsYO6o');
+    emailjs.init('QZM5uygvO95eN6vFi');
 
     const templateParams = {
       name,
@@ -40,8 +40,8 @@ const Contact: React.FC = () => {
     };
 
     try {
-      await emailjs.send('service_3cr6kb5', 'template_c280url', templateParams);
-      await emailjs.send('service_3cr6kb5', 'template_upwuy55', templateParams);
+      await emailjs.send('service_5vui23f', 'template_snf4lnp', templateParams);
+      await emailjs.send('service_5vui23f', 'template_74jgr65', templateParams);
 
       setSuccessMessage("Thank you! Your request has been submitted successfully. You will receive a confirmation email shortly.");
 
