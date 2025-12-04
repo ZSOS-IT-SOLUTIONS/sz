@@ -1,7 +1,7 @@
 # SkyZuri Techbridges
 
 <div align="center">
-  <img src="images/logo.png" alt="SkyZuri Techbridges Logo" width="200"/>
+  <img src="images/Artboard 10.png" alt="SkyZuri Techbridges Logo" width="200"/>
 </div>
 
 ## Overview
