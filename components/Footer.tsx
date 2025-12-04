@@ -132,7 +132,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <h4 className="font-semibold text-lg mb-4">Contact</h4>
               <ul className="space-y-3">
                 <li><motion.div initial={{ color: 'white' }} whileHover={{ scale: 1.1, color: '#00A8E8' }} className="flex items-center gap-2"><Phone size={16} /> <a href="https://wa.me/919385816887?text=Hello SkyZuri Techbridge. I would like to make an enquiry." target="_blank" className="text-base"> +91 9385816887</a></motion.div></li>
-                <li><motion.div initial={{ color: 'white' }} whileHover={{ scale: 1.1, color: '#00A8E8' }} className="flex items-center gap-2"><Mail size={16} /> <a href="mailto:connect.skyzuri@gmail.com" className="text-base"> connect.skyzuri@gmail.com</a></motion.div></li>
+                <li><motion.div initial={{ color: 'white' }} whileHover={{ scale: 1.1, color: '#00A8E8' }} className="flex items-center gap-2"><Mail size={16} /> <a href="mailto:connect.skyzuri@outlook.com" className="text-base"> connect.skyzuri@outlook.com</a></motion.div></li>
                 <li><motion.div initial={{ color: 'white' }} whileHover={{ scale: 1.1, color: '#00A8E8' }} className="flex items-center gap-2"><MapPin size={16} /> <span className="text-base"> Madurai, Tamil Nadu, India</span></motion.div></li>
                 <li><motion.div initial={{ color: 'white' }} whileHover={{ scale: 1.1, color: '#00A8E8' }} className="flex items-center gap-2"><Linkedin size={16} /> <a href="https://www.linkedin.com/company/skyzuri-techbridge" target="_blank" rel="noopener noreferrer" className="text-base">Connect with us</a></motion.div></li>
               </ul>
@@ -151,7 +151,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />
-            <p>&copy; {new Date().getFullYear()} <motion.button onClick={() => navigate('/hero')} className="text-white hover:text-blue-400 transition-colors" whileHover={{ scale: 1.05 }}>SkyZuri Techbridge</motion.button>. All Rights Reserved.</p>
+            <p>&copy; {new Date().getFullYear()} <motion.button onClick={() => navigate('/hero')} className="text-white hover:text-blue-400 transition-colors" whileHover={{ scale: 1.05 }}>SkyZuri Techbridge.</motion.button> All Rights Reserved.</p>
           </div>
         </div>
       </div>

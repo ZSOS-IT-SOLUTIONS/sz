@@ -47,7 +47,7 @@ Current job openings in Engineering, Marketing, and Design departments.
 
 ### 📞 Contact
 - Phone: +91 9385816887
-- Email: connect.skyzuri@gmail.com
+- Email: connect.skyzuri@outlook.com
 - Address: Madurai, Tamil Nadu, India
 - LinkedIn: [Mohamed Murshal Ibrahim](https://www.linkedin.com/in/mohamedmurshalibrahim)
 
@@ -169,7 +169,7 @@ This project is proprietary software owned by SkyZuri Techbridges. All rights re
 
 For inquiries, partnerships, or support:
 
-- **Email:** connect.skyzuri@gmail.com
+- **Email:** connect.skyzuri@outlook.com
 - **Phone:** +91 9385816887
 - **Address:** Madurai, Tamil Nadu, India
 - **LinkedIn:** [Mohamed Murshal Ibrahim](https://www.linkedin.com/in/mohamedmurshalibrahim)

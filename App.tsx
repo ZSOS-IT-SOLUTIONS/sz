@@ -86,8 +86,8 @@ function App() {
 
   return (
     <div className="font-sans antialiased selection:bg-accent selection:text-white overflow-hidden">
-      {/* <CustomCursor /> Removed custom cursor */}
-      
+      <CustomCursor />
+
       <Header onNavigate={handleNavigate} currentPage={currentView} onCareersClick={handleCareersClick} />
       
       {showPopup && currentView !== 'careers' && (

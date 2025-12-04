@@ -312,7 +312,7 @@ export const CAREER_OPENINGS: JobOpening[] = [
 
 export const CONTACT_DETAILS = {
   phone: "+91 9385816887",
-  email: "connect.skyzuri@gmail.com",
+  email: "connect.skyzuri@outlook.com",
   address: "Madurai, Tamil Nadu, India", 
   linkedin: "https://www.linkedin.com/in/mohamedmurshalibrahim"
 };

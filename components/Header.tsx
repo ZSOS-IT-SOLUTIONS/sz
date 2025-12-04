@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ onCareersClick }) => {
             })}
           </nav>
           <a
-            href="http://calendly.com/mohamedmurshalibrahim"
+            href="http://calendly.com/skyzuri-techbridge"
             target="_blank"
             rel="noopener noreferrer"
             className="shining-button text-white font-bold py-2 px-4 rounded-full text-sm"
@@ -81,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ onCareersClick }) => {
         {/* Mobile Menu Toggle */}
         <div className="flex items-center gap-4 md:hidden">
           <a
-            href="http://calendly.com/mohamedmurshalibrahim"
+            href="http://calendly.com/skyzuri-techbridge"
             target="_blank"
             rel="noopener noreferrer"
             className="shining-button text-white font-bold py-2 px-4 rounded-full text-sm"

@@ -9,53 +9,52 @@ const CustomCursor: React.FC = () => {
       if (cursorRef.current) {
         cursorRef.current.style.left = `${e.clientX}px`;
         cursorRef.current.style.top = `${e.clientY}px`;
-        cursorRef.current.style.transform = `translate(-50%, -50%) rotate(${Math.abs(e.clientY % 24)}deg)`;
+        cursorRef.current.style.transform = `translate(-50%, -50%)`;
       }
     };
 
-    const handleMouseEnter = () => setIsVisible(true);
-    const handleMouseLeave = () => setIsVisible(false);
+    const addScale = () => {
+      if(cursorRef.current) cursorRef.current.classList.add('scale-150');
+    };
+
+    const removeScale = () => {
+      if(cursorRef.current) cursorRef.current.classList.remove('scale-150');
+    };
 
     document.addEventListener('mousemove', moveCursor);
-    document.body.addEventListener('mouseenter', handleMouseEnter);
-    document.body.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('mouseenter', () => setIsVisible(true));
+    document.addEventListener('mouseleave', () => setIsVisible(false));
 
-    // Add generic hover effects
-    const addScale = () => {
-        if(cursorRef.current) cursorRef.current.classList.add('scale-150');
-    };
-    const removeScale = () => {
-        if(cursorRef.current) cursorRef.current.classList.remove('scale-150');
-    };
-
-    const buttons = document.querySelectorAll('button, a, .hover-trigger');
-    buttons.forEach(btn => {
-        btn.addEventListener('mouseenter', addScale);
-        btn.addEventListener('mouseleave', removeScale);
+    // Add scale on hover for interactive elements
+    const interactiveElements = document.querySelectorAll('button, a, [role="button"], input, textarea, select');
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', addScale);
+      el.addEventListener('mouseleave', removeScale);
     });
 
     return () => {
       document.removeEventListener('mousemove', moveCursor);
-      document.body.removeEventListener('mouseenter', handleMouseEnter);
-      document.body.removeEventListener('mouseleave', handleMouseLeave);
-      buttons.forEach(btn => {
-        btn.removeEventListener('mouseenter', addScale);
-        btn.removeEventListener('mouseleave', removeScale);
-    });
+      document.removeEventListener('mouseenter', () => setIsVisible(true));
+      document.removeEventListener('mouseleave', () => setIsVisible(false));
+      interactiveElements.forEach(el => {
+        el.removeEventListener('mouseenter', addScale);
+        el.removeEventListener('mouseleave', removeScale);
+      });
     };
   }, []);
-
-  if (!isVisible) return null;
 
   return (
     <div
       ref={cursorRef}
-      className="fixed pointer-events-none z-[99999] transition-transform duration-75 ease-out w-10 h-10 rounded-full bg-blue-500/30 backdrop-blur-sm border-2 border-accent shadow-[0_0_20px_rgba(70,153,249,0.5)] flex items-center justify-center mix-blend-screen"
-      style={{
-        willChange: 'transform, left, top',
-      }}
+      className="fixed pointer-events-none z-[99999] transition-transform duration-75 ease-out"
+      style={{ opacity: isVisible ? 1 : 0 }}
     >
-        <div className="w-2 h-2 bg-white rounded-full" />
+      <img
+        src="images/cursor.png"
+        alt="Custom Cursor"
+        className="w-6 h-6"
+        style={{ filter: 'drop-shadow(0 0 5px rgba(70, 153, 249, 0.5))' }}
+      />
     </div>
   );
 };
