@@ -29,7 +29,7 @@ export const TECH_STACK: TechCategory[] = [
     id: 'mobile',
     label: 'MOBILE',
     items: [
-      { name: 'Android', icon: 'images/android.png' },
+      { name: 'Android Studio', icon: 'images/android.png' },
       { name: 'Kotlin', icon: 'images/kotlin.png' },
       { name: 'Swift', icon: 'images/swift.png' },
       { name: 'Flutter', icon: 'images/flutter.png' },
