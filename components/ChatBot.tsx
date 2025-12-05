@@ -240,8 +240,8 @@ To be a global leader in digital innovation, shaping a smarter, more connected w
 
 **Contact:**
 - Phone: 9385816887
-- Email: info@skyzuritechbrides.com
-- Location: Chennai, Tamil Nadu, India
+- Email: connect.skyzuri@outlook.com
+- Location: Madurai, Tamil Nadu, India
 
 Always be professional, concise, and helpful. If you don't know something, admit it and suggest contacting our team directly.`,
         });

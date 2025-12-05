@@ -7,32 +7,32 @@ import { Project } from '../types';
 
 const MILESTONES = [
   {
-    year: '2024',
+    year: "June'25",
     title: 'Ideation & Foundation',
     description: 'Skyzuri is conceptualized with a vision to lead digital transformation through advanced technologies.'
   },
   {
-    year: '2025',
+    year: "July'25",
     title: 'Official Launch',
     description: 'Company launches with core services: AI, Cloud, Blockchain, Web Development, and Cybersecurity.'
   },
   {
-    year: '2026',
+    year: "September'25",
     title: 'Major Project Deployments',
     description: 'Delivered multiple enterprise solutions for startups, SMEs, and institutions.'
   },
   {
-    year: '2027',
+    year: "October'25",
     title: 'Expansion of Services',
     description: 'Added digital marketing, UI/UX, automation, and advanced consulting services.'
   },
   {
-    year: '2028',
+    year: "December'25",
     title: 'Global Partnerships',
     description: 'Formed strategic tech collaborations and expanded service reach internationally.'
   },
   {
-    year: '2029',
+    year: '2026',
     title: 'Future Goals',
     description: 'Scaling AI-driven products, cybersecurity platforms, and cloud automation systems to become a global digital innovation leader.'
   }
@@ -84,11 +84,10 @@ const Portfolio: React.FC = () => {
               <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-8 font-montserrat">
                 {REVOLUTION_STORY.title} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-600">
-                  Since 2024
+                  Since 2025
                 </span>
               </h1>
-
-              <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-xl font-inter">
+              <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-xl font-inter text-justify">
                 {REVOLUTION_STORY.content}
               </p>
 

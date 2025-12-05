@@ -54,39 +54,47 @@ const About: React.FC = () => {
               
               <div className="flex flex-wrap gap-6 justify-center md:justify-start">
                 <a 
-                  href="https://linkedin.com" 
+                  href="https://linkedin.com/in/mohamedmurshalibrahim" 
                   target="_blank" 
                   rel="noreferrer"
                   className="hover-trigger flex items-center gap-2 text-gray-700 dark:text-gray-200 font-bold hover:text-[#0A66C2] dark:hover:text-[#4d9be2] transition-colors"
                 >
-                  <LinkedInIcon className="w-6 h-6 text-[#0A66C2]" />
-                  <span>Ibrahim</span>
+                  <img 
+                    src="images/linkedin.png"
+                    alt="LinkedIn"
+                    className="w-6 h-6 object-contain"
+                  />
+                  <span>Mohamed Murshal Ibrahim</span>
                 </a>
                 
                 <a 
-                  href="tel:+919385816887" 
+                  href="https://wa.me/919385816887?text=Hello SkyZuri Techbridge. I would like to make an enquiry." 
                   className="hover-trigger flex items-center gap-2 text-gray-700 dark:text-gray-200 font-bold hover:text-green-600 transition-colors"
                 >
                   <WhatsappIcon className="w-6 h-6 text-[#25D366]" />
-                  <span>9385816887</span>
+                  <span>+91 9385816887</span>
                 </a>
               </div>
             </div>
 
             {/* Image Column */}
             <div className="flex flex-col items-center shrink-0 md:ml-16">
-              <div className="relative w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] flex items-center justify-center">
-                {/* Image */}
-                <img 
-                  src="images/skz.png"
-                  alt="Ibrahim - CEO" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
+              <a href="https://profilecard.skyzuri.com" target="_blank" rel="noopener noreferrer" className="block">
+                <div className="relative w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] flex items-center justify-center">
+                  {/* Image */}
+                  <img
+                    src="images/skz.png"
+                    alt="Ibrahim - CEO"
+                    className="w-full h-full object-cover cursor-pointer"
+                  />
+                </div>
+              </a>
+
               <div className="text-center mt-6">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white font-montserrat">Ibrahim</h3>
-                <p className="text-gray-500 dark:text-gray-400 font-medium">CEO, Skyzuri Solutions</p>
+                <a href="https://profilecard.skyzuri.com" target="_blank" rel="noopener noreferrer" className="text-xl font-bold text-gray-900 dark:text-white font-montserrat hover:underline">
+                  Mohamed Murshal Ibrahim T
+                </a>
+                <p className="text-gray-500 dark:text-gray-400 font-medium">Founder & CEO, SkyZuri Techbridge</p>
               </div>
             </div>
 

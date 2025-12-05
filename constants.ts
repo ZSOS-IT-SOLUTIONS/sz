@@ -141,56 +141,56 @@ export const PORTFOLIO_PROJECTS: Project[] = [
         id: '1',
         title: "Lanka Greenovation",
         category: "Web Application",
-        description: "A Full finshshed e-commerece site for Biotech Productus",
+        description: "A Full finshshed e-commerece site for Biotech Products",
         image: "images/lkg.png",
-        link: "#",
-        linkedinUrl: "https://www.linkedin.com/"
+        link: "https://lankagreenovation.com/",
+        linkedinUrl: "https://www.lankagreenovation.com/"
     },
-    {
-        id: '2',
-        title: "Trabook",
-        category: "Web Application",
-        description: "A Full finshshed e-commerece site for Travel and Tourism",
-        image: "images/hg.png",
-        link: "#",
-        linkedinUrl: "https://www.linkedin.com/"
-    },
-    {
-        id: '3',
-        title: "Background Remover",
-        category: "AI & ML",
-        description: "Photo background removal tool ",
-        image: "images/project-iot.jpg",
-        link: "#",
-        linkedinUrl: "https://www.linkedin.com/"
-    },
-    {
-        id: '4',
-        title: "Heritage",
-        category: "3D & Web Developement",
-        description: "A Full designed 3d website about Taj Mahal with a Explanation in multiple Languages and a 3d explanation",
-        image: "images/hg.png",
-        link: "#",
-        linkedinUrl: "https://www.linkedin.com/"
-    },
-    {
-        id: '5',
-        title: "EduLearn Platform",
-        category: "Mobile App",
-        description: "Gamified learning experience for K-12 students, increasing engagement by 40% through interactive modules.",
-        image: "images/project-edulearn.jpg",
-        link: "#",
-        linkedinUrl: "https://www.linkedin.com/"
-    },
-    {
-        id: '6',
-        title: "AutoLogistics CRM",
-        category: "Automation",
-        description: "Automated logistics management system reducing dispatch times by 60% using intelligent route planning.",
-        image: "images/project-logistics.jpg",
-        link: "#",
-        linkedinUrl: "https://www.linkedin.com/"
-    }
+    // {
+    //     id: '2',
+    //     title: "Trabook",
+    //     category: "Web Application",
+    //     description: "A Full finshshed e-commerece site for Travel and Tourism",
+    //     image: "images/hg.png",
+    //     link: "#",
+    //     linkedinUrl: "https://www.linkedin.com/"
+    // },
+    // {
+    //     id: '3',
+    //     title: "Background Remover",
+    //     category: "AI & ML",
+    //     description: "Photo background removal tool ",
+    //     image: "images/project-iot.jpg",
+    //     link: "#",
+    //     linkedinUrl: "https://www.linkedin.com/"
+    // },
+    // {
+    //     id: '4',
+    //     title: "Heritage",
+    //     category: "3D & Web Developement",
+    //     description: "A Full designed 3d website about Taj Mahal with a Explanation in multiple Languages and a 3d explanation",
+    //     image: "images/hg.png",
+    //     link: "#",
+    //     linkedinUrl: "https://www.linkedin.com/"
+    // },
+    // {
+    //     id: '5',
+    //     title: "EduLearn Platform",
+    //     category: "Mobile App",
+    //     description: "Gamified learning experience for K-12 students, increasing engagement by 40% through interactive modules.",
+    //     image: "images/project-edulearn.jpg",
+    //     link: "#",
+    //     linkedinUrl: "https://www.linkedin.com/"
+    // },
+    // {
+    //     id: '6',
+    //     title: "AutoLogistics CRM",
+    //     category: "Automation",
+    //     description: "Automated logistics management system reducing dispatch times by 60% using intelligent route planning.",
+    //     image: "images/project-logistics.jpg",
+    //     link: "#",
+    //     linkedinUrl: "https://www.linkedin.com/"
+    // }
 ];
 
 export const REVOLUTION_STORY = {
@@ -224,9 +224,7 @@ export const ABOUT_DATA = {
     { name: "Innovate Solutions", logo: "images/ader.jpg" },
   ],
   vision: `To be a global leader in digital innovation, shaping a smarter, more connected world where technology drives opportunity, security, and limitless growth. Skyzuri envisions a future where businesses thrive with intelligent, adaptive, and sustainable digital ecosystems.`,
-  mission: `Our mission is to empower organizations through advanced, secure, and scalable technologies.
- We strive to deliver excellence in AI, Cloud, Blockchain, Cybersecurity, and Software Engineering, enabling businesses to innovate with confidence.
- Skyzuri is dedicated to transforming ideas into impactful digital solutions that accelerate progress and shape the future.`
+  mission: `Our mission is to empower organizations through advanced, secure, and scalable technologies. We strive to deliver excellence in AI, Cloud, Blockchain, Cybersecurity, and Software Engineering, enabling businesses to innovate with confidence. Skyzuri is dedicated to transforming ideas into impactful digital solutions that accelerate progress and shape the future.`
 };
 
 export const TEAM_DATA = [
@@ -314,7 +312,7 @@ export const CAREER_OPENINGS: JobOpening[] = [
 
 export const CONTACT_DETAILS = {
   phone: "+91 9385816887",
-  email: "connect.skyzuri@gmail.com",
+  email: "connect.skyzuri@outlook.com",
   address: "Madurai, Tamil Nadu, India", 
   linkedin: "https://www.linkedin.com/in/mohamedmurshalibrahim"
 };
