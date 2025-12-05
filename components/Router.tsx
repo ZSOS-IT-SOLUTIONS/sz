@@ -79,26 +79,24 @@ const AppContent: React.FC = () => {
       )}
 
       <main className="min-h-screen">
-        <AnimatePresence mode="wait">
-          <Routes>
-            <Route path="/" element={<Home onRequestDemo={navigateToRequestDemo} onServiceClick={handleServiceDetails} onNavigateContact={handleNavigateToContact} />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/team" element={<Team />} />
-            <Route path="/careers" element={<Careers />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/services" element={<Services onRequestDemo={handleServiceDetails} onServiceClick={handleServiceDetails} />} />
-            <Route path="/request-demo" element={selectedService ? <RequestDemo service={selectedService} onBack={handleBackToHome} onSuccess={handleNavigateToContact} /> : <Navigate to="/" />} />
-            <Route path="/service-details" element={selectedService ? <ServiceDetails service={selectedService} onBack={handleBackToHome} onFeatureClick={handleFeatureClick} onNavigateToContact={handleNavigateToContact} /> : <Navigate to="/" />} />
-            <Route path="/key-feature-details" element={selectedFeature ? <KeyFeatureDetails feature={selectedFeature} onBack={handleBackToServiceDetails} /> : <Navigate to="/" />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/support" element={<Support />} />
-            <Route path="/help-center" element={<HelpCenter />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-        </AnimatePresence>
+        <Routes>
+          <Route path="/" element={<Home onRequestDemo={navigateToRequestDemo} onServiceClick={handleServiceDetails} onNavigateContact={handleNavigateToContact} />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<Services onRequestDemo={handleServiceDetails} onServiceClick={handleServiceDetails} />} />
+          <Route path="/request-demo" element={selectedService ? <RequestDemo service={selectedService} onBack={handleBackToHome} onSuccess={handleNavigateToContact} /> : <Navigate to="/" />} />
+          <Route path="/service-details" element={selectedService ? <ServiceDetails service={selectedService} onBack={handleBackToHome} onFeatureClick={handleFeatureClick} onNavigateToContact={handleNavigateToContact} /> : <Navigate to="/" />} />
+          <Route path="/key-feature-details" element={selectedFeature ? <KeyFeatureDetails feature={selectedFeature} onBack={handleBackToServiceDetails} /> : <Navigate to="/" />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/help-center" element={<HelpCenter />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
       </main>
 
       <Footer />

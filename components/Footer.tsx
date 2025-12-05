@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LinkedInIcon from './LinkedInIcon';
 import InstagramIcon from './InstagramIcon';
 import YouTubeIcon from './YouTubeIcon';
@@ -11,9 +11,15 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const navigate = useNavigate();
+
   const handleLinkClick = (page: string) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (onNavigate) {
       onNavigate(page);
+    } else {
+      const path = page === 'home' ? '/' : `/${page}`;
+      navigate(path);
     }
   };
 
@@ -44,50 +50,50 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           {/* Column 1: Brand and Social */}
           <div className="flex-1 min-w-[250px] md:max-w-[350px] flex flex-col items-center md:items-start">
-            <Link to="/" className="flex items-center justify-center cursor-pointer">
-                <motion.div
-                    className="w-32 h-32 rounded-2xl overflow-hidden shadow-lg"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                >
-                    <img src="images/logo.png" alt="SkyZuri Techbridges Logo" className="w-full h-full object-cover" />
-                </motion.div>
+            <Link to="/" className="flex items-center justify-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <motion.div
+                className="w-32 h-32 rounded-2xl overflow-hidden shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img src="images/footer.png" alt="SkyZuri Techbridges Logo" className="w-full h-full object-cover" />
+              </motion.div>
             </Link>
             <p className="mt-6 text-sm text-white leading-relaxed text-center md:text-left">
-                We empower businesses to transform, grow, and lead the future with cutting-edge technology and smart digital experiences.
+              We empower businesses to transform, grow, and lead the future with cutting-edge technology and smart digital experiences.
 
             </p>
             <div className="flex items-center justify-center md:justify-start gap-4 mt-6">
-                <motion.a
-                    href="https://instagram.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    className="p-2 rounded-full transition-colors hover:bg-white/10"
-                >
-                    <img src="images/instagram.png" alt="Instagram" className="w-6 h-6" />
-                </motion.a>
-                <motion.a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    className="p-2 rounded-full transition-colors hover:bg-white/10"
-                >
-                    <img src="images/linkedin.png" alt="LinkedIn" className="w-6 h-6" />
-                </motion.a>
-                <motion.a
-                    href="https://youtube.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="YouTube"
-                    whileHover={{ scale: 1.2, rotate: 10 }}
-                    className="p-2 rounded-full transition-colors hover:bg-white/10"
-                >
-                    <img src="images/youtube.png" alt="YouTube" className="w-6 h-6" />
-                </motion.a>
+              <motion.a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                className="p-2 rounded-full transition-colors hover:bg-white/10"
+              >
+                <img src="images/instagram.png" alt="Instagram" className="w-6 h-6" />
+              </motion.a>
+              <motion.a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                className="p-2 rounded-full transition-colors hover:bg-white/10"
+              >
+                <img src="images/linkedin.png" alt="LinkedIn" className="w-6 h-6" />
+              </motion.a>
+              <motion.a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                className="p-2 rounded-full transition-colors hover:bg-white/10"
+              >
+                <img src="images/youtube.png" alt="YouTube" className="w-6 h-6" />
+              </motion.a>
             </div>
           </div>
 
@@ -97,10 +103,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="min-w-[150px] text-center md:text-left">
               <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
               <ul className="space-y-3">
-                <li><motion.a href="#home" onClick={(e) => {e.preventDefault(); handleLinkClick('home')}} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Home</motion.a></li>
-                <li><motion.a href="#about" onClick={(e) => {e.preventDefault(); handleLinkClick('about')}} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>About Us</motion.a></li>
-                <li><motion.a href="#services" onClick={(e) => {e.preventDefault(); handleLinkClick('services')}} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Services</motion.a></li>
-                <li><motion.a href="#portfolio" onClick={(e) => {e.preventDefault(); handleLinkClick('portfolio')}} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Portfolio</motion.a></li>
+                <li><motion.button onClick={() => handleLinkClick('home')} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Home</motion.button></li>
+                <li><motion.button onClick={() => handleLinkClick('about')} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>About Us</motion.button></li>
+                <li><motion.button onClick={() => handleLinkClick('services')} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Services</motion.button></li>
+                <li><motion.button onClick={() => handleLinkClick('portfolio')} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Portfolio</motion.button></li>
                 <li><motion.button onClick={() => handleLinkClick('faq')} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>FAQ</motion.button></li>
               </ul>
             </div>
@@ -109,8 +115,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="min-w-[150px] text-center md:text-left">
               <h4 className="font-semibold text-lg mb-4">Company</h4>
               <ul className="space-y-3">
-                <li><Link to="/team" className="text-sm text-white" style={{ display: 'block' }}><motion.span whileHover={{ scale: 1.1, color: '#00A8E8' }}>Team</motion.span></Link></li>
-                <li><Link to="/careers" className="text-sm text-white" style={{ display: 'block' }}><motion.span whileHover={{ scale: 1.1, color: '#00A8E8' }}>Careers</motion.span></Link></li>
+                <li><motion.button onClick={() => handleLinkClick('team')} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Team</motion.button></li>
+                <li><motion.button onClick={() => handleLinkClick('careers')} className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Careers</motion.button></li>
               </ul>
             </div>
 
@@ -129,10 +135,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="min-w-[150px] text-center md:text-left">
               <h4 className="font-semibold text-lg mb-4">Contact</h4>
               <ul className="space-y-3">
-                <li className="flex items-center gap-2"><Phone size={16} /> <a href="tel:+919385816887" className="text-sm text-white"> +91 9385816887</a></li>
-                <li className="flex items-center gap-2"><Mail size={16} /> <a href="mailto:connect.skyzuri@gmail.com" className="text-sm text-white"> connect.skyzuri@gmail.com</a></li>
-                <li className="flex items-center gap-2"><MapPin size={16} /> <span className="text-sm text-white"> Madurai, Tamil Nadu, India</span></li>
-                <li className="flex items-center gap-2"><Linkedin size={16} /> <a href="https://www.linkedin.com/company/skyzuritech/" target="_blank" rel="noopener noreferrer" className="text-sm text-white" whileHover={{ scale: 1.1, color: '#00A8E8' }}>Connect with us</a></li>
+                <li className="flex items-center gap-2 justify-center md:justify-start"><Phone size={16} /> <a href="tel:+919385816887" className="text-sm text-white"> +91 9385816887</a></li>
+                <li className="flex items-center gap-2 justify-center md:justify-start"><Mail size={16} /> <a href="mailto:connect.skyzuri@gmail.com" className="text-sm text-white"> connect.skyzuri@gmail.com</a></li>
+                <li className="flex items-center gap-2 justify-center md:justify-start"><MapPin size={16} /> <span className="text-sm text-white"> Madurai, Tamil Nadu, India</span></li>
+                <li className="flex items-center gap-2 justify-center md:justify-start"><Linkedin size={16} /> <a href="https://www.linkedin.com/company/skyzuritech/" target="_blank" rel="noopener noreferrer" className="text-sm text-white hover:text-[#00A8E8] transition-colors">Connect with us</a></li>
               </ul>
             </div>
 
@@ -142,9 +148,9 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         <div className="mt-16 border-t border-white/10 pt-10 text-center text-sm text-white tracking-wider">
           <div className="flex justify-center items-center gap-2">
-            <motion.img 
-              src="images/logo.png" 
-              alt="SkyZuri Logo" 
+            <motion.img
+              src="images/logo.png"
+              alt="SkyZuri Logo"
               className="h-5 w-5"
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}

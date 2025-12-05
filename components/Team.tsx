@@ -1,13 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Phone, Mail, Briefcase } from 'lucide-react';
 import WhatsappIcon from './WhatsappIcon';
 
 const Team: React.FC = () => {
+  const navigate = useNavigate();
   const teamMembers = [
     {
       name: 'Mohamed Murshal Ibrahim T',
-      position:'Founder & Chief Executive Officer, SkyZuri Techbridge',
+      position: 'Founder & Chief Executive Officer, SkyZuri Techbridge',
       email: 'connect.murshal@gmail.com',
       phone: '+91 9385816887',
       image: 'images/ibrh.png',
@@ -15,7 +17,7 @@ const Team: React.FC = () => {
     },
     {
       name: 'Madhanagopal N S',
-      position:'Chief Technology Officer, SkyZuri Techbridge',
+      position: 'Chief Technology Officer, SkyZuri Techbridge',
       email: 'madhanns2005@gmail.com',
       phone: '+91 9342545418',
       image: 'images/madan.png',
@@ -23,7 +25,7 @@ const Team: React.FC = () => {
     },
     {
       name: 'Nimalan S',
-      position:'Managing Director, SkyZuri Techbridge',
+      position: 'Managing Director, SkyZuri Techbridge',
       email: 'sarah@skyzuri.com',
       phone: '+91 9843982348',
       image: 'images/nimal.png',
@@ -34,7 +36,7 @@ const Team: React.FC = () => {
   return (
     <div className="min-h-screen bg-white text-slate-900 pt-20 pb-16">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.h1 
+        <motion.h1
           className="text-5xl font-bold text-center mb-16"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -57,28 +59,31 @@ const Team: React.FC = () => {
                   <img src={member.image} alt={member.name} className="w-full h-full object-contain" />
                 </div>
                 <div className="p-6 flex flex-col flex-1 text-center">
-                    <div>
-                        <h3 className="text-xl font-bold text-slate-900 mb-1">{member.name}</h3>
-                        <p className="text-pink-500 font-semibold mb-3">{member.position}</p>
-                        <div className="text-gray-600 mt-4 space-y-2">
-                            <div className="flex items-center gap-2">
-                                <Mail size={16} className="text-pink-500"/>
-                                <a href={`mailto:${member.email}`} className="hover:text-pink-500 transition-colors">{member.email}</a>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Phone size={16} className="text-blue-500" />
-                                <a href={`https://wa.me/${member.phone.replace(/\s/g, '').replace('+', '')}`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors">{member.phone}</a>
-                            </div>
-                        </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-1">{member.name}</h3>
+                    <p className="text-pink-500 font-semibold mb-3">{member.position}</p>
+                    <div className="text-gray-600 mt-4 space-y-2">
+                      <div className="flex items-center gap-2">
+                        <Mail size={16} className="text-pink-500" />
+                        <a href={`mailto:${member.email}`} className="hover:text-pink-500 transition-colors">{member.email}</a>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Phone size={16} className="text-blue-500" />
+                        <a href={`https://wa.me/${member.phone.replace(/\s/g, '').replace('+', '')}`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors">{member.phone}</a>
+                      </div>
                     </div>
-                    <div className="mt-auto flex items-center justify-center gap-4">
-                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-500 transition-colors">
-                            <img src="images/linkedin.png" alt="LinkedIn" className="w-8 h-8" />
-                        </a>
-                        <a href={`https://wa.me/${member.phone.replace(/\s/g, '').replace('+', '')}`} target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-400 transition-colors">
-                            <WhatsappIcon className="w-8 h-8" />
-                        </a>
-                    </div>
+                  </div>
+                  <div className="mt-auto flex items-center justify-center gap-4">
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-500 transition-colors">
+                      <img src="images/linkedin.png" alt="LinkedIn" className="w-8 h-8" />
+                    </a>
+                    <a href={`https://wa.me/${member.phone.replace(/\s/g, '').replace('+', '')}`} target="_blank" rel="noopener noreferrer" className="text-green-500 hover:text-green-400 transition-colors">
+                      <WhatsappIcon className="w-8 h-8" />
+                    </a>
+                    <button onClick={() => navigate('/portfolio')} className="text-purple-600 hover:text-purple-500 transition-colors" title="View Portfolio">
+                      <Briefcase className="w-8 h-8" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </motion.div>
