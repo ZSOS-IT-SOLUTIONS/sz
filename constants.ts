@@ -29,7 +29,7 @@ export const TECH_STACK: TechCategory[] = [
     id: 'mobile',
     label: 'MOBILE',
     items: [
-      { name: 'Android', icon: 'images/android.png' },
+      { name: 'Android Studio', icon: 'images/android.png' },
       { name: 'Kotlin', icon: 'images/kotlin.png' },
       { name: 'Swift', icon: 'images/swift.png' },
       { name: 'Flutter', icon: 'images/flutter.png' },
@@ -66,66 +66,77 @@ export const SERVICES: Service[] = [
   {
     label: 'Digital Marketing',
     link: '#',
+    image: 'images/dm.png',
     description: "Accelerate your brand's growth with data-driven digital marketing strategies. We help you reach your target audience effectively through multiple channels.",
     features: ['Search Engine Optimization (SEO)', 'Social Media Management', 'Pay-Per-Click Advertising', 'Content Marketing Strategy']
   },
   {
     label: 'UI and UX Design',
     link: '#',
+    image: 'images/uiux.png',
     description: "Create meaningful experiences that delight users. Our design team focuses on usability, accessibility, and aesthetic appeal to build products users love.",
     features: ['User Research & Personas', 'Wireframing & Prototyping', 'Interactive Interface Design', 'Usability Testing']
   },
   {
     label: 'Graphic Design',
     link: '#',
+    image: 'images/gd.png',
     description: "Visual storytelling that defines your brand identity. From logos to marketing collateral, we ensure your visual presence communicates your values clearly.",
     features: ['Logo & Branding Kits', 'Marketing Materials', 'Social Media Graphics', 'Infographics & Illustrations']
   },
   {
     label: 'Web Solutions',
     link: '#',
+    image: 'images/wd.jpg',
     description: "Custom web development tailored to your business needs. We build responsive, high-performance websites and web applications using the latest technologies.",
     features: ['Custom Website Development', 'E-commerce Solutions', 'CMS Integration', 'Progressive Web Apps (PWA)']
   },
   {
     label: 'AI and ML',
     link: '#',
+    image: 'images/aiml.jpg',
     description: "Unlock the power of Artificial Intelligence. We build intelligent systems that analyze data, predict trends, and automate complex tasks to give you a competitive edge.",
     features: ['Predictive Analytics', 'Natural Language Processing (NLP)', 'Computer Vision Systems', 'Custom Chatbot Development']
   },
   {
     label: 'Cybersecurity',
     link: '#',
+    image: 'images/cysec.jpg',
     description: "Protect your digital assets with robust security solutions. We identify vulnerabilities and implement comprehensive strategies to safeguard your data.",
     features: ['Vulnerability Assessments', 'Network Security', 'Data Encryption', 'Security Audits & Compliance']
   },
   {
     label: 'Cloud Computing',
     link: '#',
+    image: 'images/cc.jpg',
     description: "Scalable cloud infrastructure for modern businesses. We assist with migration, management, and optimization of cloud services to ensure reliability.",
     features: ['Cloud Migration Strategy', 'AWS / Azure / Google Cloud', 'DevOps & CI/CD Pipelines', 'Serverless Architecture']
   },
   {
     label: 'Student Project',
     link: '#',
+    image: 'images/sp.jpg',
     description: "Mentorship and guidance for academic excellence. We support students in building innovative technical projects for their final year capstones.",
     features: ['Project Topic Selection', 'Technical Implementation Support', 'Documentation Assistance', 'Code Review & Optimization']
   },
   {
     label: 'Automation',
     link: '#',
+    image: 'images/at.png',
     description: "Streamline operations and reduce manual effort. We implement automation tools that handle repetitive tasks, increasing efficiency and accuracy.",
     features: ['Business Process Automation', 'Robotic Process Automation (RPA)', 'Workflow Integration', 'Scripting & Tooling']
   },
   {
     label: 'PCB Building',
     link: '#',
+    image: 'images/pcb.jpg',
     description: "Professional circuit board design and assembly. From schematic capture to final fabrication, we bring hardware prototypes to life.",
     features: ['Schematic Design', 'PCB Layout & Routing', 'Prototyping & Assembly', 'Component Sourcing']
   },
   {
     label: 'Blockchain',
     link: '#',
+    image: 'images/bc.jpg',
     description: "Decentralized solutions for the future. We develop secure blockchain applications, smart contracts, and integrate Web3 technologies into your business.",
     features: ['Smart Contract Development', 'DApp Creation', 'Tokenization', 'Private Blockchain Setup']
   },
@@ -137,71 +148,71 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 export const PORTFOLIO_PROJECTS: Project[] = [
-    {
-        id: '1',
-        title: "Lanka Greenovation",
-        category: "Web Application",
-        description: "A Full finshshed e-commerece site for Biotech Products",
-        image: "images/lkg.png",
-        link: "https://lankagreenovation.com/",
-        linkedinUrl: "https://www.lankagreenovation.com/"
-    },
-    // {
-    //     id: '2',
-    //     title: "Trabook",
-    //     category: "Web Application",
-    //     description: "A Full finshshed e-commerece site for Travel and Tourism",
-    //     image: "images/hg.png",
-    //     link: "#",
-    //     linkedinUrl: "https://www.linkedin.com/"
-    // },
-    // {
-    //     id: '3',
-    //     title: "Background Remover",
-    //     category: "AI & ML",
-    //     description: "Photo background removal tool ",
-    //     image: "images/project-iot.jpg",
-    //     link: "#",
-    //     linkedinUrl: "https://www.linkedin.com/"
-    // },
-    // {
-    //     id: '4',
-    //     title: "Heritage",
-    //     category: "3D & Web Developement",
-    //     description: "A Full designed 3d website about Taj Mahal with a Explanation in multiple Languages and a 3d explanation",
-    //     image: "images/hg.png",
-    //     link: "#",
-    //     linkedinUrl: "https://www.linkedin.com/"
-    // },
-    // {
-    //     id: '5',
-    //     title: "EduLearn Platform",
-    //     category: "Mobile App",
-    //     description: "Gamified learning experience for K-12 students, increasing engagement by 40% through interactive modules.",
-    //     image: "images/project-edulearn.jpg",
-    //     link: "#",
-    //     linkedinUrl: "https://www.linkedin.com/"
-    // },
-    // {
-    //     id: '6',
-    //     title: "AutoLogistics CRM",
-    //     category: "Automation",
-    //     description: "Automated logistics management system reducing dispatch times by 60% using intelligent route planning.",
-    //     image: "images/project-logistics.jpg",
-    //     link: "#",
-    //     linkedinUrl: "https://www.linkedin.com/"
-    // }
+  {
+    id: '1',
+    title: "Lanka Greenovation",
+    category: "Web Application",
+    description: "A Full finshshed e-commerece site for Biotech Products",
+    image: "images/lkg.png",
+    link: "https://lankagreenovation.com/",
+    linkedinUrl: "https://www.lankagreenovation.com/"
+  },
+  // {
+  //     id: '2',
+  //     title: "Trabook",
+  //     category: "Web Application",
+  //     description: "A Full finshshed e-commerece site for Travel and Tourism",
+  //     image: "images/hg.png",
+  //     link: "#",
+  //     linkedinUrl: "https://www.linkedin.com/"
+  // },
+  // {
+  //     id: '3',
+  //     title: "Background Remover",
+  //     category: "AI & ML",
+  //     description: "Photo background removal tool ",
+  //     image: "images/project-iot.jpg",
+  //     link: "#",
+  //     linkedinUrl: "https://www.linkedin.com/"
+  // },
+  // {
+  //     id: '4',
+  //     title: "Heritage",
+  //     category: "3D & Web Developement",
+  //     description: "A Full designed 3d website about Taj Mahal with a Explanation in multiple Languages and a 3d explanation",
+  //     image: "images/hg.png",
+  //     link: "#",
+  //     linkedinUrl: "https://www.linkedin.com/"
+  // },
+  // {
+  //     id: '5',
+  //     title: "EduLearn Platform",
+  //     category: "Mobile App",
+  //     description: "Gamified learning experience for K-12 students, increasing engagement by 40% through interactive modules.",
+  //     image: "images/project-edulearn.jpg",
+  //     link: "#",
+  //     linkedinUrl: "https://www.linkedin.com/"
+  // },
+  // {
+  //     id: '6',
+  //     title: "AutoLogistics CRM",
+  //     category: "Automation",
+  //     description: "Automated logistics management system reducing dispatch times by 60% using intelligent route planning.",
+  //     image: "images/project-logistics.jpg",
+  //     link: "#",
+  //     linkedinUrl: "https://www.linkedin.com/"
+  // }
 ];
 
 export const REVOLUTION_STORY = {
-    title: "Our Revolution",
-    subtitle: "Pioneering the Future Since 2020",
-    content: "SkyZuri Techbrides began as a bold idea in a small garage: to democratize access to enterprise-grade technology. What started as a student initiative has revolutionized into a powerhouse of innovation. We challenged the status quo, bridging the gap between complex emerging tech and practical business solutions. Today, we stand at the forefront of the digital revolution, empowering startups and Fortune 500s alike to rewrite their destiny through code.",
-    stats: [
-        { label: "Years of Innovation", value: "5+" },
-        { label: "Projects Delivered", value: "150+" },
-        { label: "Global Partners", value: "20+" }
-    ]
+  title: "Our Revolution",
+  subtitle: "Pioneering the Future Since 2020",
+  content: "SkyZuri Techbrides began as a bold idea in a small garage: to democratize access to enterprise-grade technology. What started as a student initiative has revolutionized into a powerhouse of innovation. We challenged the status quo, bridging the gap between complex emerging tech and practical business solutions. Today, we stand at the forefront of the digital revolution, empowering startups and Fortune 500s alike to rewrite their destiny through code.",
+  stats: [
+    { label: "Years of Innovation", value: "5+" },
+    { label: "Projects Delivered", value: "150+" },
+    { label: "Global Partners", value: "20+" }
+  ]
 };
 
 export const ABOUT_DATA = {
@@ -217,7 +228,7 @@ export const ABOUT_DATA = {
     { name: "Startup India", image: "images/stn.png" },
   ],
   collaborations: [
-    
+
   ],
   centered_collaborations: [
     { name: "ZSOS IT SOLUTIONS ", logo: "images/zsoslogo.jpg" },
@@ -229,25 +240,28 @@ export const ABOUT_DATA = {
 
 export const TEAM_DATA = [
   {
-    name: 'Mohamed Murshal Ibrahim',
-    role: 'CEO, Skyzuri Solutions',
+    name: 'Mohamed Murshal Ibrahim T',
+    role: 'Founder & Chief Executive Officer, SkyZuri Techbridge',
     image: 'images/ibrh.png',
-    email: 'info@skyzuritechbrides.com',
-    phone: '9385816887'
+    email: 'connect.mohamedmurshalibrahim@gmail.com',
+    phone: '+91 9385816887',
+    linkedin: 'https://www.linkedin.com/in/mohamedmurshalibrahim'
   },
   {
-    name: 'Madan',
-    role: 'Lead Developer',
+    name: 'Madhanagopal N S',
+    role: 'Chief Technology Officer, SkyZuri Techbridge',
     image: 'images/madan.png',
-    email: 'ahmed.khan@example.com',
-    phone: '9876543210'
+    email: 'madhanns2005@gmail.com',
+    phone: '+91 9342545418',
+    linkedin: 'https://www.linkedin.com/in/n-s-madhanagopal-123990285'
   },
   {
-    name: 'Nimal',
-    role: 'UI/UX Designer',
+    name: 'Nimalan S',
+    role: 'Managing Director, SkyZuri Techbridge',
     image: 'images/nimal.png',
-    email: 'sarah.design@example.com',
-    phone: '9876543211'
+    email: 'nimalsoma1973@gmail.com',
+    phone: '+91 9843982348',
+    linkedin: 'https://www.linkedin.com/in/nimalan-s-b538002bb/'
   },
 ];
 
@@ -313,7 +327,7 @@ export const CAREER_OPENINGS: JobOpening[] = [
 export const CONTACT_DETAILS = {
   phone: "+91 9385816887",
   email: "connect.skyzuri@outlook.com",
-  address: "Madurai, Tamil Nadu, India", 
+  address: "Madurai, Tamil Nadu, India",
   linkedin: "https://www.linkedin.com/in/mohamedmurshalibrahim"
 };
 

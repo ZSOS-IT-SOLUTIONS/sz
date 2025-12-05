@@ -1,82 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- Site favicon and touch icon (uses your company logo in /images/) -->
-    <link rel="icon" type="image/jpeg" href="/images/logo.png" />
-    <link rel="icon" type="image/png" href="/images/skz.png" />
-    <link rel="apple-touch-icon" href="/images/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SkyZuri Techbridge</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      @font-face {
-        font-family: 'Agraham';
-        src: url('/fonts/Agraham.otf') format('opentype');
-      }
-      @keyframes neon-border {
-        0%, 100% {
-          box-shadow: 0 0 5px #f0f, 0 0 10px #f0f, 0 0 20px #f0f, 0 0 40px #0ff, 0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
-        }
-        50% {
-          box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #f0f, 0 0 80px #f0f, 0 0 90px #f0f, 0 0 100px #f0f, 0 0 150px #f0f;
-        }
-      }
-      .neon-border {
-        animation: neon-border 3s ease-in-out infinite;
-        border-radius: 50%;
-      }
-      @keyframes shine {
-        0% {
-          background-position: -200% 0;
-        }
-        100% {
-          background-position: 200% 0;
-        }
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- Site favicon and touch icon (uses your company logo in /images/) -->
+  <link rel="icon" type="image/jpeg" href="/images/logo.png" />
+  <link rel="icon" type="image/png" href="/images/skz.png" />
+  <link rel="apple-touch-icon" href="/images/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyZuri Techbridge</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @font-face {
+      font-family: 'Agraham';
+      src: url('/fonts/Agraham.otf') format('opentype');
+    }
+
+    @keyframes neon-border {
+
+      0%,
+      100% {
+        box-shadow: 0 0 5px #f0f, 0 0 10px #f0f, 0 0 20px #f0f, 0 0 40px #0ff, 0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff, 0 0 150px #0ff;
       }
 
-      .shining-button {
-        background-image: linear-gradient(
-          to right,
+      50% {
+        box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #f0f, 0 0 80px #f0f, 0 0 90px #f0f, 0 0 100px #f0f, 0 0 150px #f0f;
+      }
+    }
+
+    .neon-border {
+      animation: neon-border 3s ease-in-out infinite;
+      border-radius: 50%;
+    }
+
+    @keyframes shine {
+      0% {
+        background-position: -200% 0;
+      }
+
+      100% {
+        background-position: 200% 0;
+      }
+    }
+
+    .shining-button {
+      background-image: linear-gradient(to right,
           #4699f9 0%,
           #a3d1ff 50%,
-          #4699f9 100%
-        );
-        background-size: 200% auto;
-        animation: shine 3s linear infinite;
+          #4699f9 100%);
+      background-size: 200% auto;
+      animation: shine 3s linear infinite;
+    }
+
+    @media (pointer: fine) {
+      * {
+        cursor: url('/cursor.png'), auto !important;
       }
-    </style>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              montserrat: ['Montserrat', 'sans-serif'],
-              inter: ['Inter', 'sans-serif'],
-              agraham: ['Agraham', 'serif'],
-            },
-            colors: {
-              primary: '#222436',
-              accent: '#4699f9',
-              'card-light': '#e9edfb',
-              'card-dark': '#252b47',
-              'bg-light': '#f6f8fe',
-              'bg-dark': '#161a2c',
-            },
-            boxShadow: {
-              'soft': '0 4px 24px 0 rgba(70, 153, 249, 0.07)',
-              'glow': '0 10px 30px #b7d4f8b9',
-            }
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            montserrat: ['Montserrat', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+            agraham: ['Agraham', 'serif'],
           },
+          colors: {
+            primary: '#222436',
+            accent: '#4699f9',
+            'card-light': '#e9edfb',
+            'card-dark': '#252b47',
+            'bg-light': '#f6f8fe',
+            'bg-dark': '#161a2c',
+          },
+          boxShadow: {
+            'soft': '0 4px 24px 0 rgba(70, 153, 249, 0.07)',
+            'glow': '0 10px 30px #b7d4f8b9',
+          }
         },
-      }
-    </script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+      },
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <script type="importmap">
 {
   "imports": {
@@ -91,8 +105,10 @@
 </script>
 
 </head>
-  <body class="bg-bg-light text-primary transition-colors duration-300 overflow-x-hidden">
-    <div id="root"></div>
+
+<body class="bg-bg-light text-primary transition-colors duration-300 overflow-x-hidden">
+  <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

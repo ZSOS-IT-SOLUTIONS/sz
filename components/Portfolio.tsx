@@ -54,7 +54,7 @@ const Portfolio: React.FC = () => {
     <div className="bg-[#f8faff] min-h-screen font-sans selection:bg-accent selection:text-white pb-20 overflow-x-hidden">
 
       {/* --- HERO / REVOLUTION SECTION --- */}
-      <section className="relative pt-20 pb-24 px-6 md:px-12 overflow-hidden">
+      <section className="relative pt-16 pb-20 px-4 md:px-12 overflow-hidden">
 
         {/* Animated Background Elements */}
         <motion.div
@@ -81,13 +81,13 @@ const Portfolio: React.FC = () => {
                 <span className="tracking-wide uppercase">Innovation First</span>
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-8 font-montserrat">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-8 font-montserrat">
                 {REVOLUTION_STORY.title} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-purple-600">
                   Since 2025
                 </span>
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed mb-10 max-w-xl font-inter text-justify">
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-10 max-w-xl font-inter text-justify">
                 {REVOLUTION_STORY.content}
               </p>
 
@@ -162,7 +162,7 @@ const Portfolio: React.FC = () => {
       <section className="container mx-auto px-4 max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-gray-200 pb-6 gap-6">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2 font-montserrat">Selected Work</h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-slate-900 mb-2 font-montserrat">Selected Work</h2>
             <p className="text-gray-500">Explore our successful deliveries across industries.</p>
           </div>
           <div className="flex flex-wrap gap-2">

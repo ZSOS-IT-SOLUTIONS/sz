@@ -31,6 +31,7 @@ const AppContent: React.FC = () => {
 
   const handleFeatureClick = (feature: string) => {
     setSelectedFeature(feature);
+    navigate('/key-feature-details');
   };
 
   const handleBackToServiceDetails = () => {
@@ -39,6 +40,7 @@ const AppContent: React.FC = () => {
 
   const handleServiceDetails = (service: Service) => {
     setSelectedService(service);
+    navigate('/service-details');
   };
 
   const navigateToRequestDemo = (service: Service) => {
