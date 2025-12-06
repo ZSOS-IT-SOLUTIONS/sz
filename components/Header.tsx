@@ -1,17 +1,26 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { NAV_LINKS } from '../constants';
 import { Menu, X } from 'lucide-react';
 
 interface HeaderProps {
-    onNavigate: (page: string) => void;
-    currentPage: string;
+    onNavigate?: (page: string) => void;
+    currentPage?: string;
     onCareersClick: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage, onCareersClick }) => {
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleHomeClick = () => {
+        if (onNavigate) {
+            onNavigate('home');
+        }
+        navigate('/');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     const handleNavClick = (e: React.MouseEvent, href: string) => {
         e.preventDefault();
@@ -34,14 +43,17 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage, onCareersClick
 
     return (
         <header className="sticky top-0 z-50 bg-white shadow-soft transition-colors duration-300">
-            <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
 
                 {/* Logo Section */}
-                <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl overflow-hidden hover:scale-110 transition-transform duration-300 cursor-pointer shadow-md" onClick={() => onNavigate('home')}>
+                <div className="flex items-center gap-2 md:gap-3">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl overflow-hidden hover:scale-110 transition-transform duration-300 cursor-pointer shadow-md" onClick={handleHomeClick}>
                         <img src="images/logo.png" alt="SkyZuri Techbrides Logo" className="w-full h-full object-cover" />
                     </div>
-                    <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-[#00008B] font-agraham tracking-tight">
+                    <h1
+                        className="text-base sm:text-xl md:text-2xl font-bold text-[#00008B] font-agraham tracking-tight cursor-pointer"
+                        onClick={handleHomeClick}
+                    >
                         SkyZuri Techbridge
                     </h1>
                 </div>

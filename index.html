@@ -53,10 +53,9 @@
       animation: shine 3s linear infinite;
     }
 
-    @media (pointer: fine) {
-      * {
-        cursor: url('/cursor.png'), auto !important;
-      }
+    /* Applied globally without pointer type checks for maximum compatibility */
+    * {
+      cursor: url('images/cursor.png') 0 0, auto !important;
     }
   </style>
   <script>

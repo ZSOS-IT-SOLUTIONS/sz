@@ -37,10 +37,10 @@ const Services: React.FC<ServicesProps> = ({ onRequestDemo, onServiceClick }) =>
   };
 
   return (
-    <section className="py-16 bg-card-light dark:bg-card-dark rounded-xl shadow-soft max-w-8xl mx-auto px-6">
+    <section className="py-12 md:py-16 bg-card-light dark:bg-card-dark rounded-xl shadow-soft max-w-8xl mx-auto px-6">
       {/* Top headline section - full width, centered */}
       <motion.div className="mb-12 text-center" initial="hidden" animate="visible" variants={headlineVariants}>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 text-primary dark:text-white">
+        <h2 className="text-3xl lg:text-5xl font-extrabold mb-6 text-primary dark:text-white">
           Utilize
           <span className="block">the Technology with</span>
           <span className="block">SkyZuri Techbridge</span>

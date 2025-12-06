@@ -81,7 +81,7 @@ const Contact: React.FC = () => {
   }));
 
   return (
-    <div className="min-h-screen bg-gray-900 py-16 px-4 font-inter animate-fade-in relative overflow-hidden">
+    <div className="min-h-screen bg-gray-900 py-12 md:py-16 px-4 font-inter animate-fade-in relative overflow-hidden">
 
       {/* 3D Animated Background */}
       <div className="absolute inset-0" style={{ perspective: '1000px' }}>
@@ -112,7 +112,7 @@ const Contact: React.FC = () => {
 
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-12 animate-slide-up relative z-10">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-4 font-montserrat">
+        <h1 className="text-2xl md:text-4xl font-extrabold text-white mb-4 font-montserrat">
           We'd Love To Hear From You!
         </h1>
         <p className="text-gray-300 text-sm md:text-base leading-relaxed">
@@ -163,7 +163,7 @@ const Contact: React.FC = () => {
 
         {/* RIGHT SIDE CONTACT FORM */}
         <div className="animate-slide-up-delayed relative z-10">
-          <div className="bg-gray-800 rounded-lg shadow-2xl p-8 md:p-12 border border-gray-700">
+          <div className="bg-gray-800 rounded-lg shadow-2xl p-6 md:p-12 border border-gray-700">
 
             <h2 className="text-2xl font-bold text-center text-white mb-8 font-montserrat">
               Contact Us

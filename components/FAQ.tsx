@@ -20,7 +20,7 @@ const FAQ: React.FC = () => {
     },
     {
       question: 'Do you have job openings?',
-      answer: 'Yes, we are always looking for talented individuals to join our team. Please check our careers page for current openings.',
+      answer: 'No, we are not having any openings currently. Please check our careers page for current openings.',
       icon: '💼',
       gradient: 'from-green-500 to-teal-500'
     },

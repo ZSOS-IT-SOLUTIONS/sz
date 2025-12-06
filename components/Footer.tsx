@@ -50,7 +50,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           {/* Column 1: Brand and Social */}
           <div className="flex-1 min-w-[250px] md:max-w-[350px] flex flex-col items-center md:items-start">
-            <Link to="/" className="flex items-center justify-center cursor-pointer">
+            <div onClick={() => handleLinkClick('home')} className="flex items-center justify-center cursor-pointer">
               <motion.div
                 className="w-100 h-100 shadow-lg"
                 whileHover={{ scale: 1.05 }}
@@ -58,7 +58,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               >
                 <img src="images/artboard 10.png" alt="SkyZuri Techbridges Logo" className="w-full h-full object-cover" />
               </motion.div>
-            </Link>
+            </div>
             <p className="mt-6 text-base text-white leading-relaxed text-center md:text-left">
               We empower businesses to transform, grow, and lead the future with cutting-edge technology and smart digital experiences.
 
@@ -155,7 +155,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             />
-            <p>&copy; {new Date().getFullYear()} <motion.button onClick={() => navigate('/hero')} className="text-white hover:text-blue-400 transition-colors" whileHover={{ scale: 1.05 }}>SkyZuri Techbridge.</motion.button> All Rights Reserved.</p>
+            <p>&copy; {new Date().getFullYear()} <motion.button onClick={() => handleLinkClick('home')} className="text-white hover:text-blue-400 transition-colors" whileHover={{ scale: 1.05 }}>SkyZuri Techbridge.</motion.button> All Rights Reserved.</p>
           </div>
         </div>
       </div>

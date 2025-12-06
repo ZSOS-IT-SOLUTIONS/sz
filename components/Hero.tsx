@@ -7,31 +7,31 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onNavigateContact }) => {
   return (
-    <section id="hero" className="relative min-h-[420px] rounded-b-[45px] bg-gradient-to-br from-[#eaf2fe] via-[#dae2f7] to-[#eaf2fe] px-6 py-12 md:px-16 lg:px-24 mb-16 shadow-soft flex flex-col-reverse md:flex-row items-center justify-between gap-10 overflow-hidden">
-      
+    <section id="hero" className="relative min-h-[420px] rounded-b-[45px] bg-gradient-to-br from-[#eaf2fe] via-[#dae2f7] to-[#eaf2fe] px-4 py-8 md:px-16 lg:px-24 md:py-12 mb-16 shadow-soft flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-10 overflow-hidden">
+
       {/* Text Content */}
       <div className="max-w-xl z-10 text-center md:text-left">
-        <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-4xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight font-montserrat"
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="text-3xl md:text-5xl font-bold text-slate-800 mb-4 md:mb-6 leading-tight font-montserrat"
         >
           The Technology Engine Behind Tomorrow's Winners
         </motion.h1>
-        
-        <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
-            className="text-lg text-gray-600 mb-8 font-inter"
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+          className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 font-inter"
         >
           Skyzuri is a forward-thinking digital innovation company specializing in AI, Cloud Computing, Blockchain, Cybersecurity, and Custom Software Development. We help businesses, startups, and enterprise clients navigate digital transformation with secure, scalable, and intelligent solutions.
- <br className="hidden md:block"/>
-          
+          <br className="hidden md:block" />
+
         </motion.p>
-        
-        <motion.button 
+
+        <motion.button
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           whileHover={{ scale: 1.05 }}
@@ -52,7 +52,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigateContact }) => {
         transition={{ duration: 0.8, ease: "backOut" }}
         className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl z-10 flex justify-center"
       >
-        <div className="relative w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] bg-white rounded-3xl shadow-2xl flex items-center justify-center overflow-hidden">
+        <div className="relative w-[280px] h-[280px] sm:w-[450px] sm:h-[450px] bg-white rounded-3xl shadow-2xl flex items-center justify-center overflow-hidden">
           {/* image stack */}
           <ImageCarousel />
         </div>

@@ -10,7 +10,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ServiceDetails from './components/ServiceDetails';
 import Services from './components/Services';  // Added import for Services
-// import CustomCursor from './components/CustomCursor';  // Removed import
+
 import FAQ from './components/FAQ';
 import Support from './components/Support';
 import HelpCenter from './components/HelpCenter';
@@ -53,8 +53,8 @@ function App() {
   const handleNavigate = (page: string) => {
     if (page !== currentView) {
       setCurrentView(page);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const navigateToRequestDemo = (service: Service) => {
@@ -86,10 +86,10 @@ function App() {
 
   return (
     <div className="font-sans antialiased selection:bg-accent selection:text-white overflow-hidden">
-      <CustomCursor />
+
 
       <Header onNavigate={handleNavigate} currentPage={currentView} onCareersClick={handleCareersClick} />
-      
+
       {showPopup && currentView !== 'careers' && (
         <Popup
           message={
@@ -108,29 +108,29 @@ function App() {
             </PageTransition>
           )}
           {currentView === 'portfolio' && (
-             <PageTransition key="portfolio">
-               <Portfolio />
-             </PageTransition>
+            <PageTransition key="portfolio">
+              <Portfolio />
+            </PageTransition>
           )}
           {currentView === 'about' && (
-             <PageTransition key="about">
-               <About />
-             </PageTransition>
+            <PageTransition key="about">
+              <About />
+            </PageTransition>
           )}
           {currentView === 'team' && (
-             <PageTransition key="team">
-               <Team />
-             </PageTransition>
+            <PageTransition key="team">
+              <Team />
+            </PageTransition>
           )}
           {currentView === 'careers' && (
-             <PageTransition key="careers">
-               <Careers />
-             </PageTransition>
+            <PageTransition key="careers">
+              <Careers />
+            </PageTransition>
           )}
           {currentView === 'contact' && (
-             <PageTransition key="contact">
-               <Contact />
-             </PageTransition>
+            <PageTransition key="contact">
+              <Contact />
+            </PageTransition>
           )}
           {currentView === 'services' && (
             <PageTransition key="services">
@@ -180,8 +180,8 @@ function App() {
         </AnimatePresence>
       </main>
 
-<Footer onNavigate={handleNavigate} />
-      
+      <Footer onNavigate={handleNavigate} />
+
       <ChatBot />
     </div>
   );
